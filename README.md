@@ -1,3 +1,12 @@
+---
+title: SpamShield AI
+emoji: 🛡️
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+---
+
 # SpamShield AI: Advanced LLM Spam Classification System 🛡️
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
