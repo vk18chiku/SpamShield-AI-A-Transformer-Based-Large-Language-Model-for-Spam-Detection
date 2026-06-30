@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # PyTorch
-*.pth
+# *.pth ignored previously, now tracked via LFS
 *.pt
 *.ckpt
 
