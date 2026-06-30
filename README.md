@@ -11,6 +11,7 @@ app_file: app.py
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-%23FF4B4B.svg?style=for-the-badge&logo=Streamlit&logoColor=white)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Uttam1695/Spam-Shield-AI)
 
 Welcome to **SpamShield AI**, an intelligent, end-to-end spam classification web application. This project demonstrates the implementation of a custom-built Large Language Model (LLM) utilizing a transformer architecture to classify text messages (SMS/Emails) into **Spam** or **Ham (Not Spam)**.
 
@@ -31,7 +32,7 @@ The core of SpamShield AI is the `review_classifier.pth` model. It was trained o
 1. **Data Engineering**: Processed over 5,500 SMS messages, handling class imbalances and applying advanced tokenization strategies.
 2. **Custom Embeddings**: Built custom word and positional embeddings to capture deep semantic meaning and sequence context.
 3. **Loss & Accuracy Tracking**: The training process achieved exceptional accuracy, significantly reducing false positives (as visualized in `accuracy-plot.pdf` and `loss-plot.pdf`).
-4. **State Dict**: The trained weights (`review_classifier.pth`) are loaded seamlessly into the Streamlit application for low-latency predictions using `@st.cache_resource`.
+4. **Model Optimization**: The trained weights (`review_classifier.pth`) were converted to FP16 (Half-Precision) to reduce memory footprint by 50%, enabling lightning-fast, seamless cloud deployments using `@st.cache_resource`.
 
 ## 💻 Tech Stack
 
@@ -50,8 +51,8 @@ Make sure you have Python 3.8+ installed.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/Spam_Classifier_using_LLM_from_scratch.git
-cd Spam_Classifier_using_LLM_from_scratch
+git clone https://github.com/vk18chiku/SpamShield-AI-A-Transformer-Based-Large-Language-Model-for-Spam-Detection.git
+cd SpamShield-AI-A-Transformer-Based-Large-Language-Model-for-Spam-Detection
 ```
 
 ### 2. Install Dependencies
@@ -78,7 +79,7 @@ The web interface was meticulously designed to provide a premium user experience
 ## 📈 Future Enhancements
 
 - **API Rate Limiting**: Implementing Redis to manage request throttling.
-- **Model Quantization**: Reducing the model size for edge deployment without sacrificing accuracy.
+- **INT8 Quantization**: Further reducing the model size for edge deployment using dynamic quantization without sacrificing accuracy.
 - **Multi-lingual Support**: Expanding the vocabulary to detect spam in multiple languages.
 
 ---
