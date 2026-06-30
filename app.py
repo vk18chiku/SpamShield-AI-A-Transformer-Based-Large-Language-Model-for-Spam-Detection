@@ -9,7 +9,7 @@ st.set_page_config(page_title="SpamShield AI", page_icon="🛡️", layout="cent
 @st.cache_resource
 def load_model():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = GPTModel(BASE_CONFIG)
+    model = GPTModel(BASE_CONFIG).half()
     model.load_state_dict(torch.load('review_classifier.pth', map_location=device))
     model.to(device)
     model.eval()
