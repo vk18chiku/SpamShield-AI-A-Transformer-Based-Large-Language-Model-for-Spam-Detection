@@ -3,8 +3,8 @@ title: SpamShield AI
 emoji: 🛡️
 colorFrom: blue
 colorTo: purple
-sdk: docker
-app_port: 7860
+sdk: streamlit
+app_file: app.py
 ---
 
 # SpamShield AI: Advanced LLM Spam Classification System 🛡️
