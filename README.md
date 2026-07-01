@@ -35,7 +35,7 @@ The core of SpamShield AI is the `review_classifier.pth` model. It was trained o
 ### Key Highlights:
 1. **Data Engineering**: Processed over 5,500 SMS messages (`sms_spam_collection`), split into `train.csv`, `validation.csv`, and `test.csv`. Handling class imbalances and applying advanced tokenization strategies.
 2. **Custom Embeddings**: Built custom word and positional embeddings to capture deep semantic meaning and sequence context.
-3. **Loss & Accuracy Tracking**: The training process achieved exceptional accuracy, significantly reducing false positives (as visualized in `accuracy-plot.pdf` and `loss-plot.pdf`).
+3. **Loss & Accuracy Tracking**: The training process achieved exceptional accuracy, significantly reducing false positives. The model demonstrates high performance with a **Validation Accuracy of 97.32%** and a **Test Accuracy of 95.67%** (as visualized in `accuracy-plot.pdf` and `loss-plot.pdf`).
 4. **Model Optimization**: The trained weights (`review_classifier.pth`) were converted to FP16 (Half-Precision - `review_classifier_fp16.pth`) and INT8 (`review_classifier_int8.pth`) to reduce memory footprint, enabling lightning-fast, seamless cloud deployments using `@st.cache_resource`.
 
 ## 📂 Project Structure
