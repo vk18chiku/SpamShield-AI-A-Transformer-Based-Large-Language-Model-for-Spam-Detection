@@ -11,7 +11,11 @@ app_file: app.py
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-%23FF4B4B.svg?style=for-the-badge&logo=Streamlit&logoColor=white)
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/Uttam1695/Spam-Shield-AI)
+
+## 🌐 Live Demo
+Experience the application live here: **[Spam-Shield-AI on Hugging Face Spaces](https://huggingface.co/spaces/Uttam1695/Spam-Shield-AI)**
+
+---
 
 Welcome to **SpamShield AI**, an intelligent, end-to-end spam classification web application. This project demonstrates the implementation of a custom-built Large Language Model (LLM) utilizing a transformer architecture to classify text messages (SMS/Emails) into **Spam** or **Ham (Not Spam)**.
 
@@ -29,10 +33,20 @@ Every component of this pipeline—from data preprocessing and model architectur
 The core of SpamShield AI is the `review_classifier.pth` model. It was trained on the benchmark **SMS Spam Collection dataset**.
 
 ### Key Highlights:
-1. **Data Engineering**: Processed over 5,500 SMS messages, handling class imbalances and applying advanced tokenization strategies.
+1. **Data Engineering**: Processed over 5,500 SMS messages (`sms_spam_collection`), split into `train.csv`, `validation.csv`, and `test.csv`. Handling class imbalances and applying advanced tokenization strategies.
 2. **Custom Embeddings**: Built custom word and positional embeddings to capture deep semantic meaning and sequence context.
 3. **Loss & Accuracy Tracking**: The training process achieved exceptional accuracy, significantly reducing false positives (as visualized in `accuracy-plot.pdf` and `loss-plot.pdf`).
-4. **Model Optimization**: The trained weights (`review_classifier.pth`) were converted to FP16 (Half-Precision) to reduce memory footprint by 50%, enabling lightning-fast, seamless cloud deployments using `@st.cache_resource`.
+4. **Model Optimization**: The trained weights (`review_classifier.pth`) were converted to FP16 (Half-Precision - `review_classifier_fp16.pth`) and INT8 (`review_classifier_int8.pth`) to reduce memory footprint, enabling lightning-fast, seamless cloud deployments using `@st.cache_resource`.
+
+## 📂 Project Structure
+
+- `app.py`: The main Streamlit web application script providing the modern UI and integrating the model for real-time inference.
+- `model_def.py`: Contains the custom PyTorch Transformer model definition.
+- `extracted_code.py` / `file.ipynb`: The core research notebook and extracted code showing the step-by-step training process, data loading, and model architecture from scratch.
+- `train.csv`, `validation.csv`, `test.csv`: The processed dataset splits used for training and evaluating the model.
+- `gpt_download.py` & `gpt2/`: Utilities to download and work with tokenizers/weights if leveraging external pretrained structures.
+- `*.pth`: The saved PyTorch model weights in different precisions (standard, fp16, int8).
+- `accuracy-plot.pdf` & `loss-plot.pdf`: Visualizations of the model's performance during training.
 
 ## 💻 Tech Stack
 
@@ -40,6 +54,7 @@ The core of SpamShield AI is the `review_classifier.pth` model. It was trained o
 - **Backend & Frontend**: Python, Streamlit
 - **Data Processing**: Pandas, NumPy
 - **Environment**: Jupyter Notebook (for model research and development)
+- **Deployment**: Hugging Face Spaces, Docker
 
 ## 🛠️ Installation & Setup
 
@@ -79,7 +94,7 @@ The web interface was meticulously designed to provide a premium user experience
 ## 📈 Future Enhancements
 
 - **API Rate Limiting**: Implementing Redis to manage request throttling.
-- **INT8 Quantization**: Further reducing the model size for edge deployment using dynamic quantization without sacrificing accuracy.
+- **INT8 Quantization**: Already explored, but further edge deployment using dynamic quantization without sacrificing accuracy.
 - **Multi-lingual Support**: Expanding the vocabulary to detect spam in multiple languages.
 
 ---
